@@ -128,6 +128,8 @@ const feedbackContainer = document.getElementById('feedback-container');
 const feedbackText = document.getElementById('feedback-text');
 const scoreSpan = document.getElementById('score');
 const endMessage = document.getElementById('end-message');
+const progressBarFill = document.getElementById('progress-bar-fill');
+const progressCat = document.getElementById('progress-cat');
 
 // Event Listeners
 startBtn.addEventListener('click', startGame);
@@ -142,10 +144,18 @@ function startGame() {
     showQuestion();
 }
 
+function updateProgress() {
+    const progressPercentage = (currentQuestionIndex / questions.length) * 100;
+    progressBarFill.style.width = `${progressPercentage}%`;
+    progressCat.style.left = `${progressPercentage}%`;
+}
+
 function showQuestion() {
     const question = questions[currentQuestionIndex];
     currentQuestionSpan.textContent = currentQuestionIndex + 1;
     questionText.textContent = question.question;
+    
+    updateProgress();
     
     optionsContainer.innerHTML = '';
     feedbackContainer.classList.add('hidden');

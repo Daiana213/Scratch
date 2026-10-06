@@ -107,11 +107,45 @@ h2 {
     cursor: not-allowed;
 }
 
-.progress {
+.progress-text {
     font-size: 14px;
     color: #888;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-align: right;
+}
+
+.progress-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+    padding-top: 40px; /* Space for the cat */
+}
+
+#progress-cat {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: auto;
+    transform: translateX(-50%);
+    transition: left 0.5s ease-in-out;
+    z-index: 2;
+}
+
+.progress-bar-bg {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 12px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#progress-bar-fill {
+    background-color: var(--primary-color);
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
 }
 
 #feedback-container {
