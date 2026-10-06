@@ -139,15 +139,18 @@ restartBtn.addEventListener('click', resetGame);
 function startGame() {
     startScreen.classList.add('hidden');
     quizScreen.classList.remove('hidden');
+    document.getElementById('global-progress-area').classList.remove('hidden');
     currentQuestionIndex = 0;
     score = 0;
     showQuestion();
 }
 
 function updateProgress() {
-    const progressPercentage = (currentQuestionIndex / questions.length) * 100;
+    const progressRatio = currentQuestionIndex / questions.length;
+    const progressPercentage = progressRatio * 100;
     progressBarFill.style.width = `${progressPercentage}%`;
-    progressCat.style.left = `${progressPercentage}%`;
+    // El gato recorre el ancho completo sin salir de la pantalla
+    progressCat.style.left = `calc(${progressRatio} * (100% - 56px) + 28px)`;
 }
 
 function showQuestion() {
@@ -202,6 +205,7 @@ function nextQuestion() {
 
 function showEndScreen() {
     quizScreen.classList.add('hidden');
+    document.getElementById('global-progress-area').classList.add('hidden');
     endScreen.classList.remove('hidden');
     scoreSpan.textContent = score;
     

@@ -7,48 +7,56 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🧩 ¿Cuánto sabés de Scratch?</h1>
-            <p>Juego de cierre · 10 preguntas · una sola respuesta correcta en cada una</p>
-        </header>
+    <div class="page">
+        <div class="container">
+            <header>
+                <h1>¿Cuánto sabés de Scratch?</h1>
+                <p>Juego de cierre · 10 preguntas · una sola respuesta correcta en cada una</p>
+            </header>
 
-        <main id="game-container">
-            <div id="start-screen">
-                <h2>Antes de empezar</h2>
-                <p>Vas a ver preguntas sobre sprites, bloques, variables y condicionales. Elegí una opción y el juego te explica la respuesta. Al final se muestra tu puntaje.</p>
-                <button id="start-btn" class="btn">¡Empezar a jugar!</button>
-            </div>
+            <main id="game-container">
+                <div id="start-screen">
+                    <h2>Antes de empezar</h2>
+                    <p>Vas a ver preguntas sobre sprites, bloques, variables y condicionales. Elegí una opción y el juego te explica la respuesta. Al final se muestra tu puntaje.</p>
+                    <button id="start-btn" class="btn">¡Empezar a jugar!</button>
+                </div>
 
-            <div id="quiz-screen" class="hidden">
-                <div class="progress-text">Pregunta <span id="current-question">1</span> de 10</div>
-                <div class="progress-container">
-                    <img src="cat.png" alt="Scratch Cat" id="progress-cat">
-                    <div class="progress-bar-bg">
-                        <div id="progress-bar-fill"></div>
+                <div id="quiz-screen" class="hidden">
+                    <div class="quiz-meta">
+                        <span class="quiz-badge">Pregunta <span id="current-question">1</span> de 10</span>
+                    </div>
+                    <h2 id="question-text">Pregunta</h2>
+                    <div id="options-container">
+                        <!-- Las opciones se generarán aquí -->
+                    </div>
+                    <div id="feedback-container" class="hidden">
+                        <p id="feedback-text"></p>
+                        <button id="next-btn" class="btn">Siguiente pregunta</button>
                     </div>
                 </div>
-                <h2 id="question-text">Pregunta</h2>
-                <div id="options-container">
-                    <!-- Las opciones se generarán aquí -->
-                </div>
-                <div id="feedback-container" class="hidden">
-                    <p id="feedback-text"></p>
-                    <button id="next-btn" class="btn">Siguiente pregunta</button>
-                </div>
-            </div>
 
-            <div id="end-screen" class="hidden">
-                <h2>Resultado final</h2>
-                <p>Tu puntaje es:</p>
-                <div class="score-display">
-                    <span id="score">0</span> / 10
+                <div id="end-screen" class="hidden">
+                    <h2>Resultado final</h2>
+                    <p>Tu puntaje es:</p>
+                    <div class="score-display">
+                        <span id="score">0</span> / 10
+                    </div>
+                    <p id="end-message"></p>
+                    <button id="restart-btn" class="btn">Volver a jugar</button>
                 </div>
-                <p id="end-message"></p>
-                <button id="restart-btn" class="btn">Volver a jugar</button>
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
+
+    <div id="global-progress-area" class="hidden">
+        <div class="progress-container">
+            <img src="./cat.png" alt="" id="progress-cat">
+            <div class="progress-bar-bg">
+                <div id="progress-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
